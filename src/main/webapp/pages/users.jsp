@@ -6,7 +6,9 @@
 <html>
 <head>
   <title>Users</title>
-
+<!--
+  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+-->
   <style type="text/css">
     .tg {
       border-collapse: collapse;
@@ -54,22 +56,25 @@
 
 <h1>Users List</h1>
 
+<table class="tg">
 <c:if test="${!empty listUsers}">
-  <table class="tg">
     <tr>
       <th width="80">ID</th>
       <th width="120">Login</th>
       <th width="120">Password</th>
       <th width="120">Name</th>
       <th width="120">Surname</th>
-      <th width="60">Alias</th>
-      <th width="60">Email</th>
+      <th width="120">Alias</th>
+      <th width="120">Email</th>
+      <th width="60">Edit</th>
+      <th width="60">Delete</th>
     </tr>
     <c:forEach items="${listUsers}" var="user">
       <tr>
         <td>${user.id}</td>
         <td><a href="/usersdata/${user.id}" target="_blank">${user.login}</a></td>
         <td>${user.password}</td>
+        <td>${user.name}</td>
         <td>${user.surname}</td>
         <td>${user.alias}</td>
         <td>${user.email}</td>
@@ -82,6 +87,7 @@
 
 
 <h1>Add a User</h1>
+
 
 <c:url var="addAction" value="/users/add"/>
 
@@ -110,7 +116,6 @@
         <form:input path="login"/>
       </td>
     </tr>
-    <tr>
     <tr>
       <td>
         <form:label path="password">
@@ -170,11 +175,12 @@
         </c:if>
         <c:if test="${empty user.login}">
           <input type="submit"
-                 value="<spring:message text="Add User"/>"/>
+                 value="<spring:message text="Add User"/>" onclick="return CheckInputData();"/>
         </c:if>
       </td>
     </tr>
   </table>
 </form:form>
+
 </body>
 </html>

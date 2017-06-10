@@ -1,6 +1,7 @@
 package userbase.dao;
 
 import userbase.models.User;
+
 import java.util.List;
 
 public interface UserBaseDao {
