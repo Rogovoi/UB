@@ -6,47 +6,12 @@
 <html>
 <head>
   <title>Users</title>
-<!--
-  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
--->
-  <style type="text/css">
-    .tg {
-      border-collapse: collapse;
-      border-spacing: 0;
-      border-color: #ccc;
-    }
 
-    .tg td {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      padding: 10px 5px;
-      border-style: solid;
-      border-width: 1px;
-      overflow: hidden;
-      word-break: normal;
-      border-color: #ccc;
-      color: #333;
-      background-color: #fff;
-    }
+  <%--<style>--%>
+    <%--<%@include file='../resources/css/usersstyle.css' %>--%>
+    <%--<%@include file='../resources/css/bootstrap.min.css' %>--%>
+  <%--</style>--%>
 
-    .tg th {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      font-weight: normal;
-      padding: 10px 5px;
-      border-style: solid;
-      border-width: 1px;
-      overflow: hidden;
-      word-break: normal;
-      border-color: #ccc;
-      color: #333;
-      background-color: #f0f0f0;
-    }
-
-    .tg .tg-4eph {
-      background-color: #f9f9f9
-    }
-  </style>
 </head>
 <body>
 <a href="../../index.html">Back to main menu</a>
@@ -56,6 +21,8 @@
 
 <h1>Users List</h1>
 
+
+<div class="table-scroll">
 <table class="tg">
 <c:if test="${!empty listUsers}">
     <tr>
@@ -84,15 +51,15 @@
     </c:forEach>
   </table>
 </c:if>
+</div>
 
-
-<h1>Add a User</h1>
+<h1>Edit a User</h1>
 
 
 <c:url var="addAction" value="/users/add"/>
 
 <form:form action="${addAction}" commandName="user">
-  <table>
+  <table class="edits">
     <c:if test="${!empty user.login}">
       <tr>
         <td>
@@ -175,7 +142,7 @@
         </c:if>
         <c:if test="${empty user.login}">
           <input type="submit"
-                 value="<spring:message text="Add User"/>" onclick="return CheckInputData();"/>
+                 value="<spring:message text="Add User"/>"/>
         </c:if>
       </td>
     </tr>
@@ -183,4 +150,9 @@
 </form:form>
 
 </body>
+
+<style>
+  <%@include file='../resources/css/usersstyle.css' %>
+  <%@include file='../resources/css/bootstrap.min.css' %>
+</style>
 </html>
