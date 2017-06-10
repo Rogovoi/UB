@@ -58,16 +58,18 @@
   <table class="tg">
     <tr>
       <th width="80">ID</th>
-      <th width="120">Title</th>
-      <th width="120">Author</th>
-      <th width="120">Price</th>
-      <th width="60">Edit</th>
-      <th width="60">Delete</th>
+      <th width="120">Login</th>
+      <th width="120">Password</th>
+      <th width="120">Name</th>
+      <th width="120">Surname</th>
+      <th width="60">Alias</th>
+      <th width="60">Email</th>
     </tr>
     <c:forEach items="${listUsers}" var="user">
       <tr>
         <td>${user.id}</td>
-        <td><a href="/usersdata/${user.id}" target="_blank">${user.name}</a></td>
+        <td><a href="/usersdata/${user.id}" target="_blank">${user.login}</a></td>
+        <td>${user.password}</td>
         <td>${user.surname}</td>
         <td>${user.alias}</td>
         <td>${user.email}</td>
@@ -85,7 +87,7 @@
 
 <form:form action="${addAction}" commandName="user">
   <table>
-    <c:if test="${!empty user.name}">
+    <c:if test="${!empty user.login}">
       <tr>
         <td>
           <form:label path="id">
@@ -98,6 +100,28 @@
         </td>
       </tr>
     </c:if>
+    <tr>
+      <td>
+        <form:label path="login">
+          <spring:message text="Login"/>
+        </form:label>
+      </td>
+      <td>
+        <form:input path="login"/>
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td>
+        <form:label path="password">
+          <spring:message text="Password"/>
+        </form:label>
+      </td>
+      <td>
+        <form:input path="password"/>
+      </td>
+    </tr>
+    <tr>
     <tr>
       <td>
         <form:label path="name">
@@ -140,11 +164,11 @@
     </tr>
     <tr>
       <td colspan="2">
-        <c:if test="${!empty user.name}">
+        <c:if test="${!empty user.login}">
           <input type="submit"
                  value="<spring:message text="Edit User"/>"/>
         </c:if>
-        <c:if test="${empty user.name}">
+        <c:if test="${empty user.login}">
           <input type="submit"
                  value="<spring:message text="Add User"/>"/>
         </c:if>
