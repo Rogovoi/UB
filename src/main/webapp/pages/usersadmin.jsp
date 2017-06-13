@@ -9,11 +9,8 @@
 
 
 </head>
-<body>
-<a href="/admin">Back to profile</a>
-
-<br/>
-<br/>
+<body style="padding: 40px">
+<a href="/admin" style="font-size: 20px">Back to profile</a>
 
 <h1>Users List</h1>
 
@@ -137,10 +134,10 @@
           <input type="submit"
                  value="<spring:message text="Edit User"/>"/>
         </c:if>
-        <c:if test="${empty user.login}">
-          <input type="submit"
-                 value="<spring:message text="Add User"/>"/>
-        </c:if>
+        <%--<c:if test="${empty user.login}">--%>
+          <%--<input type="submit"--%>
+                 <%--value="<spring:message text="Add User"/>"/>--%>
+        <%--</c:if>--%>
       </td>
     </tr>
   </table>

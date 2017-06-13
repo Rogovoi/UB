@@ -50,7 +50,7 @@
   </style>
 
 </head>
-<body>
+<body style="padding: 40px">
 <h1>User Details</h1>
 
 <table class="tg">

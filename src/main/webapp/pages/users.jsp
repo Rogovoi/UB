@@ -8,8 +8,8 @@
   <title>Users</title>
 
 </head>
-<body>
-<a href="/welcome">Back to profile</a>
+<body style="padding: 30px">
+<a href="/welcome" style="font-size: 20px">Back to profile</a>
 
 <br/>
 <br/>

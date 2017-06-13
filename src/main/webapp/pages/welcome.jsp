@@ -16,12 +16,12 @@
 
 </head>
 
-<body>
+<body style="padding: 40px">
 
 <div align="right">
-    <br>
-    <a href="/admin">Admin mode</a>
-    <br>
+
+    <a href="/admin" style="font-size: 20px; font-weight: bold">Admin mode</a>
+
 </div>
 
 <div class="container">
@@ -37,10 +37,9 @@
     </c:if>
 
 </div>
-
 <div>
     <br>
-    <a href="/users">Users list</a>
+    <a href="/users" style="font-size: 20px">Users list</a>
     <br>
 </div>
 

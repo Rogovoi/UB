@@ -19,12 +19,10 @@
     </style>
 </head>
 
-<body>
+<body style="padding: 40px">
 
 <div align="right">
-    <br>
-    <a href="/welcome">User mode</a>
-    <br>
+    <a href="/welcome" style="font-size: 20px; font-weight: bold">User mode</a>
 </div>
 
 <div class="container">
@@ -43,7 +41,7 @@
 
 <div>
     <br>
-    <a href="/usersadmin">Users list</a>
+    <a href="/usersadmin" style="font-size: 20px">Users list</a>
     <br>
 </div>
 
