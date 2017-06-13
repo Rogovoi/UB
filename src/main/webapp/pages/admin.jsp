@@ -14,22 +14,43 @@
 
     <title>Admin</title>
 
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        <%@include file='../resources/css/bootstrap.min.css' %>
+    </style>
 </head>
 
 <body>
+
+<div align="right">
+    <br>
+    <a href="/welcome">User mode</a>
+    <br>
+</div>
+
 <div class="container">
+
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="post" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
+
         <h2>Welcome Admin ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
         </h2>
+
     </c:if>
+
+</div>
+
+<div>
+    <br>
+    <a href="/usersadmin">Users list</a>
+    <br>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<script>
+    <%@include file='../resources/js/bootstrap.min.js' %>
+</script>
 
 </body>
 </html>

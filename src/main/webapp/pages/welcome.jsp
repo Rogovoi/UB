@@ -14,9 +14,15 @@
 
     <title>Welcome</title>
 
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
+
+<div align="right">
+    <br>
+    <a href="/admin">Admin mode</a>
+    <br>
+</div>
 
 <div class="container">
 
@@ -31,7 +37,22 @@
     </c:if>
 
 </div>
+
+<div>
+    <br>
+    <a href="/users">Users list</a>
+    <br>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+
+<script>
+    <%@include file='../resources/js/bootstrap.min.js' %>
+</script>
+
+<style>
+    <%@include file='../resources/css/bootstrap.min.css' %>
+</style>
+
 </body>
 </html>

@@ -30,29 +30,37 @@ public class UserBaseController {
         return "users";
     }
 
-    @RequestMapping(value = "/users/add", method = RequestMethod.POST)
+    @RequestMapping(value = "usersadmin", method = RequestMethod.GET)
+    public String adminListUsers(Model model){
+        model.addAttribute("user", new User());
+        model.addAttribute("adminListUsers", this.userBaseService.listUsers());
+
+        return "usersadmin";
+    }
+
+    @RequestMapping(value = "/usersadmin/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
         if (user.getId() == 0){
             this.userBaseService.addUser(user);
         }else {
             this.userBaseService.editUser(user);
         }
-        return "redirect:/users";
+        return "redirect:/usersadmin";
     }
 
     @RequestMapping("/remove/{id}")
     public String removeUser(@PathVariable("id") int id){
         this.userBaseService.removeUser(id);
-        return "redirect:/users";
+        return "redirect:/usersadmin";
     }
 
     @RequestMapping("/edit/{id}")
     public String editUser(@PathVariable("id") int id, Model model){
         model.addAttribute("user", this.userBaseService.getUserById(id));
 
-        model.addAttribute("listUsers", this.userBaseService.listUsers());
+        model.addAttribute("adminListUsers", this.userBaseService.listUsers());
 
-        return "users";
+        return "usersadmin";
     }
 
 

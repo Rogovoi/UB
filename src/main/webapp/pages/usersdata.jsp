@@ -57,7 +57,6 @@
   <tr>
     <th width="80">ID</th>
     <th width="120">Login</th>
-    <th width="120">Password</th>
     <th width="120">Name</th>
     <th width="120">Surname</th>
     <th width="120">Alias</th>
@@ -66,7 +65,6 @@
   <tr>
     <td>${user.id}</td>
     <td>${user.login}</td>
-    <td>${user.password}</td>
     <td>${user.name}</td>
     <td>${user.surname}</td>
     <td>${user.alias}</td>
