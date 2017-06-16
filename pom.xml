@@ -173,6 +173,6 @@
     </dependencies>
 
     <build>
-        <finalName>SpringSecurityApp</finalName>
+        <finalName>UserBase</finalName>
     </build>
 </project>
