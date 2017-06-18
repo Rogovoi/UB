@@ -1,1 +1,1 @@
-Simple CRUD application with using Spring Security. In future planned develop it to simple analogue of the jira
+Simple CRUD application with using Spring MVC, Security and Hibernate. In future planned develop it to simple analogue of the jira
