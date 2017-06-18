@@ -21,6 +21,9 @@ public class UserBaseController {
         this.userBaseService = userBaseService;
     }
 
+    /*
+     *--------------user_mode--------------
+     */
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
     public String listUsers(Model model){
@@ -29,6 +32,28 @@ public class UserBaseController {
 
         return "users";
     }
+
+    /*
+     * ------------Edit profile------------
+     */
+
+    @RequestMapping(value = "/welcome/changedata", method = RequestMethod.POST)
+    public String changeProfileData(@ModelAttribute("user") User user){
+        this.userBaseService.editUser(user);
+        return "redirect:/welcome";
+    }
+
+    @RequestMapping("/editprofile/{id}")
+    public String editProfile(@PathVariable("id") int id, Model model){
+        model.addAttribute("user", this.userBaseService.getUserById(id));
+        model.addAttribute("listUsers", this.userBaseService.listUsers());
+
+        return "welcome";
+    }
+
+    /*
+     *--------------admin_mode--------------
+     */
 
     @RequestMapping(value = "usersadmin", method = RequestMethod.GET)
     public String adminListUsers(Model model){
@@ -40,29 +65,25 @@ public class UserBaseController {
 
     @RequestMapping(value = "/usersadmin/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
-        if (user.getId() == 0){
-            this.userBaseService.addUser(user);
-        }else {
-            this.userBaseService.editUser(user);
-        }
+        this.userBaseService.editUser(user);
+
         return "redirect:/usersadmin";
     }
 
     @RequestMapping("/remove/{id}")
     public String removeUser(@PathVariable("id") int id){
         this.userBaseService.removeUser(id);
+
         return "redirect:/usersadmin";
     }
 
     @RequestMapping("/edit/{id}")
     public String editUser(@PathVariable("id") int id, Model model){
         model.addAttribute("user", this.userBaseService.getUserById(id));
-
         model.addAttribute("adminListUsers", this.userBaseService.listUsers());
 
         return "usersadmin";
     }
-
 
     @RequestMapping("usersdata/{id}")
     public String userData(@PathVariable("id") int id, Model model){
@@ -70,4 +91,5 @@ public class UserBaseController {
 
         return "usersdata";
     }
+
 }

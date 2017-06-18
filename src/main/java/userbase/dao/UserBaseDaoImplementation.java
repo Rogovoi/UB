@@ -60,4 +60,15 @@ public class UserBaseDaoImplementation implements UserBaseDao{
         }
         return userlist;
     }
+
+
+    /*
+    * ---------change_profile---------------
+    */
+    @Override
+    public void changeProfileData(User user) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(user);
+        logger.info("Profile successfully updated");
+    }
 }

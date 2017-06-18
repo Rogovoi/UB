@@ -134,10 +134,6 @@
           <input type="submit"
                  value="<spring:message text="Edit User"/>"/>
         </c:if>
-        <%--<c:if test="${empty user.login}">--%>
-          <%--<input type="submit"--%>
-                 <%--value="<spring:message text="Add User"/>"/>--%>
-        <%--</c:if>--%>
       </td>
     </tr>
   </table>

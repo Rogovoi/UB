@@ -15,4 +15,6 @@ public interface UserBaseService {
     public User getUserById(int id);
 
     public List<User> listUsers();
+
+    public void changeProfileData(User user);
 }

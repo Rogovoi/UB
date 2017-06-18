@@ -1,6 +1,7 @@
 package userbase.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,10 @@ import userbase.validator.SecurityUserValidator;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
+
+
+import userbase.models.User;
+import userbase.service.UserBaseService;
 
 
 @Controller
@@ -24,6 +29,16 @@ public class SecurityUserController {
 
     @Autowired
     private SecurityUserValidator securityUserValidator;
+
+
+    private UserBaseService userBaseService;
+    @Autowired(required = true)
+    @Qualifier(value = "userBaseService")
+    public void setUserBaseService(UserBaseService userBaseService) {
+        this.userBaseService = userBaseService;
+    }
+
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -62,6 +77,8 @@ public class SecurityUserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("profile", this.userBaseService.listUsers());
         return "welcome";
     }
 

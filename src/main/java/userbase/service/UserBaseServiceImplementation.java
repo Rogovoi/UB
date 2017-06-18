@@ -42,4 +42,11 @@ public class UserBaseServiceImplementation implements UserBaseService {
     public List<User> listUsers() {
         return this.userBaseDao.listUsers();
     }
+
+    @Override
+    @Transactional
+    public void changeProfileData(User user) {
+        this.userBaseDao.changeProfileData(user);
+    }
+
 }
