@@ -4,7 +4,6 @@
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
 
 <!DOCTYPE html>
 <html lang="en">
