@@ -1,5 +1,9 @@
 package userbase.models;
 
+/**
+ * Model that represents user authorization information
+ */
+
 import javax.persistence.*;
 import java.util.Set;
 

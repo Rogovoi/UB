@@ -1,5 +1,10 @@
 package userbase.models;
 
+/**
+ *  Userdata model
+ */
+
+
 import javax.persistence.*;
 
 @Entity

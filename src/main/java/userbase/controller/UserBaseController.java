@@ -1,5 +1,9 @@
 package userbase.controller;
 
+/**
+ *Controller for users information {@link userbase.models.User}
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;

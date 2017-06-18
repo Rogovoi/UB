@@ -1,5 +1,8 @@
 package userbase.models;
 
+/**
+ * User role model {@link userbase.models.User}
+ */
 
 import javax.persistence.*;
 import java.util.Set;

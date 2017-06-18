@@ -1,5 +1,9 @@
 package userbase.controller;
 
+/**
+ *Controller for authorization users {@link userbase.models.SecurityUser}
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.ModelAttribute;
